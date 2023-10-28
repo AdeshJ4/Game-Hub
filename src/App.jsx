@@ -12,14 +12,10 @@ const App = () => {
       <GridItem area="nav">
         <NavBar />
       </GridItem>
-      <GridItem area="main" bg="gold">
-        Main
-      </GridItem>
+      <GridItem area="main">Main</GridItem>
       {/* whatever inside show will be display on large screen only*/}
       <Show above="lg">
-        <GridItem area="aside" bg="dodgerblue">
-          Aside
-        </GridItem>
+        <GridItem area="aside">Aside</GridItem>
       </Show>
     </Grid>
   );
