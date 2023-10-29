@@ -10,6 +10,10 @@ const App = () => {
         base: `"nav" "main"`, // mobile device
         lg: `"nav nav" "aside main"`, // large screen devices (larger than 1024 px)
       }}
+      templateColumns={{
+        base: '1fr',  // 1 fraction -> our column stretches and takes all the space
+        lg: '200px 1fr'
+      }}
     >
       <GridItem area="nav">
         <NavBar />
@@ -17,7 +21,7 @@ const App = () => {
         
       {/* whatever inside show will be display on large screen only*/}
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
