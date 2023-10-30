@@ -4,8 +4,8 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames(); // custom hook
+const GameGrid = ({selectedGenre}) => {
+  const { data, error, isLoading } = useGames(selectedGenre); // custom hook
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]; // it represent 2 skeleton card component
 
   return (
@@ -18,13 +18,13 @@ const GameGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={skeleton} />
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton  />
             </GameCardContainer>
           ))}
         {data.map((game) => (
-          <GameCardContainer>
-            <GameCard key={game.id} game={game} />
+          <GameCardContainer key={game.id}> 
+            <GameCard  game={game} />
           </GameCardContainer>
         ))}
       </SimpleGrid>

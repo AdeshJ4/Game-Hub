@@ -1,9 +1,9 @@
-import { Box, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import ListSkeleton from "./ListSkeleton";
 
-const GenreList = () => {
+const GenreList = ({onSelectGenre}) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return <Box children='error' />
@@ -20,7 +20,7 @@ const GenreList = () => {
               borderRadius={8}
               src={getCroppedImageUrl(genre.image_background)}
             />
-            <Text fontSize="lg">{genre.name}</Text>
+            <Button onClick={()=>onSelectGenre(genre)} fontSize="lg" variant='link'>{genre.name}</Button>
           </HStack>
         </ListItem>
       ))}
