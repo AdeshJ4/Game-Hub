@@ -7,6 +7,7 @@ import { useState } from "react";
 const App = () => {
   const [selectedGenre, setSelectedGenre] = useState(null);
 
+  console.log(selectedGenre);
   const onSelectGenre = (genre) => {
     setSelectedGenre(genre);
   }
@@ -29,7 +30,7 @@ const App = () => {
       {/* whatever inside show will be display on large screen only*/}
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
-          <GenreList onSelectGenre={onSelectGenre}/>
+          <GenreList selectedGenre={selectedGenre}  onSelectGenre={onSelectGenre}/>
         </GridItem>
       </Show>
         

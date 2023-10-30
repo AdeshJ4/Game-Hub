@@ -3,7 +3,7 @@ import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import ListSkeleton from "./ListSkeleton";
 
-const GenreList = ({onSelectGenre}) => {
+const GenreList = ({onSelectGenre, selectedGenre}) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return <Box children='error' />
@@ -20,7 +20,7 @@ const GenreList = ({onSelectGenre}) => {
               borderRadius={8}
               src={getCroppedImageUrl(genre.image_background)}
             />
-            <Button onClick={()=>onSelectGenre(genre)} fontSize="lg" variant='link'>{genre.name}</Button>
+            <Button onClick={()=>onSelectGenre(genre)} fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'} fontSize="lg" variant='link'>{genre.name}</Button>
           </HStack>
         </ListItem>
       ))}
