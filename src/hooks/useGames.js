@@ -1,6 +1,6 @@
 import useData from "./useData";
 // we pass selectedGenre as a query string parameter to the data hook
-const useGames = (selectedGenre, selectedPlatform) => useData('/games', {params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, [selectedGenre?.id, selectedPlatform?.id])
+const useGames = (gameQuery) => useData('/games', {params: {genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id}}, [gameQuery])
  
 export default useGames;
 

@@ -6,17 +6,17 @@ import { useState } from "react";
 import PlatformSelector from "./components/PlatformSelector";
 
 const App = () => {
-  const [selectedGenre, setSelectedGenre] = useState(null);
-  const [selectedPlatform, setSelectedPlatform] = useState(null);
+  // const [selectedGenre, setSelectedGenre] = useState(null);
+  // const [selectedPlatform, setSelectedPlatform] = useState(null);
 
-  console.log('selectedGenre : ' + selectedGenre);
+  const [gameQuery, setGameQuery] = useState({});
+
   const onSelectGenre = (genre) => {
-    setSelectedGenre(genre);
+    setGameQuery({...gameQuery, genre});
   }
 
-  console.log('Platform: ' + selectedPlatform);
   const onSelectPlatform = (platform)=> {
-    setSelectedPlatform(platform);
+    setGameQuery({...gameQuery, platform});
   }
 
   return (
@@ -37,13 +37,13 @@ const App = () => {
       {/* whatever inside show will be display on large screen only*/}
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
-          <GenreList selectedGenre={selectedGenre}  onSelectGenre={onSelectGenre}/>
+          <GenreList selectedGenre={gameQuery.genre}  onSelectGenre={onSelectGenre}/>
         </GridItem>
       </Show>
         
       <GridItem area="main">
-        <PlatformSelector onSelectPlatform={onSelectPlatform} selectedPlatform={selectedPlatform}/>
-        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre}/>
+        <PlatformSelector onSelectPlatform={onSelectPlatform} selectedPlatform={gameQuery.platform}/>
+        <GameGrid gameQuery={gameQuery}/>
       </GridItem>
     </Grid>
   );

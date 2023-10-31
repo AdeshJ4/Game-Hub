@@ -4,8 +4,8 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
-const GameGrid = ({selectedGenre, selectedPlatform}) => {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform); // custom hook
+const GameGrid = ({gameQuery}) => {
+  const { data, error, isLoading } = useGames(gameQuery); // custom hook
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // it represent 2 skeleton card component
 
   return (
