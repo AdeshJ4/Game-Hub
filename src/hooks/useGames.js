@@ -1,26 +1,19 @@
 import useData from "./useData";
 // we pass selectedGenre as a query string parameter to the data hook
-const useGames = (gameQuery) => useData('/games', {params: {genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id}}, [gameQuery])
- 
+const useGames = (gameQuery) =>
+  useData(
+    "/games",
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder
+      },
+    },
+    [gameQuery]
+  );
+
 export default useGames;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { useEffect, useState } from "react";
 // import apiClient from "../services/api-client";
@@ -30,7 +23,7 @@ export default useGames;
 //     const [games, setGames] = useState([]);
 //     const [error, setError] = useState("");
 //     const [isLoading, setLoading] = useState(false);
-  
+
 //     useEffect(() => {
 //         const controller = new AbortController();
 //         setLoading(true);
@@ -51,6 +44,5 @@ export default useGames;
 
 //     return {games, error, isLoading};
 // }
-
 
 // export default useGames;
