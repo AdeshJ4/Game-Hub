@@ -22,6 +22,10 @@ const App = () => {
     setGameQuery({...gameQuery, sortOrder});
   }
 
+  const onSearch = (searchText) => {
+    setGameQuery({...gameQuery, searchText});
+  }
+
   return (
     <Grid
       templateAreas={{
@@ -34,7 +38,7 @@ const App = () => {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar onSearch={onSearch} />
       </GridItem>
         
       {/* whatever inside show will be display on large screen only*/}
