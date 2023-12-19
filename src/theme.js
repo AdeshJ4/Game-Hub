@@ -1,4 +1,7 @@
-// theme.js
+/**
+ * we are going to customize the default theme  that comes with chakra 
+ * Then go to main.js and import it 
+ */
 
 // 1. import `extendTheme` function
 import { extendTheme } from "@chakra-ui/react";
@@ -27,3 +30,5 @@ const theme = extendTheme({
   } });
 
 export default theme;
+
+

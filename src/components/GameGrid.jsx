@@ -6,7 +6,7 @@ import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = ({gameQuery}) => {
   const { data, error, isLoading } = useGames(gameQuery); // custom hook
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // it represent 2 skeleton card component
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // it represent skeleton card component
 
   if(error) return  <Text>{error}</Text>;
 

@@ -12,6 +12,6 @@ const useGames = (gameQuery) =>
       },
     },
     [gameQuery]
-  );
+);
 
 export default useGames;
